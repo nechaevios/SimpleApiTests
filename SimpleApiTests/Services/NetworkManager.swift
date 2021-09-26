@@ -5,7 +5,8 @@
 //  Created by Nechaev Sergey  on 25.09.2021.
 //
 
-import Foundation
+import UIKit
+import WebKit
 
 class TestApi {
     
@@ -51,6 +52,39 @@ class TestApi {
                 print(error)
             }
         }.resume()
+        
+    }
+    
+    func fetchImage(fromData: TestApi, forImageView: UIImageView, andIndicator: UIActivityIndicatorView) {
+        andIndicator.isHidden = false
+        andIndicator.startAnimating()
+        
+        guard let url = URL(string: fromData.imageUrl) else { return }
+        
+        URLSession.shared.dataTask(with: url) { data, _, error in
+            guard let data = data else {
+                print(error?.localizedDescription ?? "No error description")
+                return
+            }
+                        
+            guard let image = UIImage(data: data) else { return }
+            
+            DispatchQueue.main.async {
+                forImageView.image = image
+                andIndicator.stopAnimating()
+            }
+        }.resume()
+    }
+    
+    func fetchGif(fromData: TestApi, forWebView: WKWebView, andIndicator: UIActivityIndicatorView) {
+        
+        andIndicator.isHidden = false
+        andIndicator.startAnimating()
+        
+        guard let gifImageUrl = URL(string: fromData.imageUrl) else { return }
+        let urlRequest = URLRequest(url: gifImageUrl)
+        
+        forWebView.load(urlRequest)
         
     }
     

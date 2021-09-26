@@ -19,6 +19,7 @@
 		D8404BE626FF940600E56B4A /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8404BE526FF940600E56B4A /* Actions.swift */; };
 		D8D527A52700A23500A4C867 /* ApiLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D527A42700A23500A4C867 /* ApiLinks.swift */; };
 		D8D527A72700BA5400A4C867 /* ImageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D527A62700BA5400A4C867 /* ImageData.swift */; };
+		D8FD3FC82701124800B20CD0 /* SingleGifViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FD3FC72701124800B20CD0 /* SingleGifViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		D8404BE526FF940600E56B4A /* Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actions.swift; sourceTree = "<group>"; };
 		D8D527A42700A23500A4C867 /* ApiLinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiLinks.swift; sourceTree = "<group>"; };
 		D8D527A62700BA5400A4C867 /* ImageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageData.swift; sourceTree = "<group>"; };
+		D8FD3FC72701124800B20CD0 /* SingleGifViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleGifViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				D8404BE126FF87D500E56B4A /* MainCollectionViewController.swift */,
 				D8404BE326FF8B0D00E56B4A /* UserActionCell.swift */,
 				D808ACA426FF9E8A0083923F /* SingleImageViewController.swift */,
+				D8FD3FC72701124800B20CD0 /* SingleGifViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -209,6 +212,7 @@
 				D8404BE426FF8B0D00E56B4A /* UserActionCell.swift in Sources */,
 				D8D527A52700A23500A4C867 /* ApiLinks.swift in Sources */,
 				D8404BC426FF763D00E56B4A /* AppDelegate.swift in Sources */,
+				D8FD3FC82701124800B20CD0 /* SingleGifViewController.swift in Sources */,
 				D8D527A72700BA5400A4C867 /* ImageData.swift in Sources */,
 				D8404BC626FF763D00E56B4A /* SceneDelegate.swift in Sources */,
 				D808ACA526FF9E8A0083923F /* SingleImageViewController.swift in Sources */,

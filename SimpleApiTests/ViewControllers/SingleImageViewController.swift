@@ -19,38 +19,31 @@ class SingleImageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         activityIndicator.startAnimating()
         activityIndicator.hidesWhenStopped = true
-        fetchImage()
+        
         imageIdLabel.text = imageData.description
+        
+        imageData.fetchImage(
+            fromData: imageData,
+            forImageView: singleImageView,
+            andIndicator: activityIndicator
+        )
+        
     }
     
     @IBAction func reloadImage() {
         imageData.getImageData()
+        
         imageIdLabel.text = imageData.description
-        fetchImage()
-        
-    }
-    
-    private func fetchImage() {
-        activityIndicator.isHidden = false
-        activityIndicator.startAnimating()
-        
-        guard let url = URL(string: imageData.imageUrl) else { return }
-        
-        URLSession.shared.dataTask(with: url) { data, _, error in
-            guard let data = data else {
-                print(error?.localizedDescription ?? "No error description")
-                return
-            }
-                        
-            guard let image = UIImage(data: data) else { return }
-            
-            DispatchQueue.main.async {
-                self.singleImageView.image = image
-                self.activityIndicator.stopAnimating()
-            }
-        }.resume()
+
+        imageData.fetchImage(
+            fromData: imageData,
+            forImageView: singleImageView,
+            andIndicator: activityIndicator
+        )
+
     }
     
 }

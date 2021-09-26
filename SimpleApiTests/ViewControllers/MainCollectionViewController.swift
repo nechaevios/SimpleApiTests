@@ -11,10 +11,12 @@ class MainCollectionViewController: UICollectionViewController {
     
     let userActions = UserActions.allCases
     let singleImage = TestApi.init(apiUrl: ApiLinks.singleImageUrl.rawValue)
+    let singleGif = TestApi.init(apiUrl: ApiLinks.singleGifUrl.rawValue)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         singleImage.getImageData()
+        singleGif.getImageData()
     }
     
     // MARK: UICollectionViewDataSource
@@ -37,8 +39,8 @@ class MainCollectionViewController: UICollectionViewController {
         
         switch userAction {
         case .getRandomImage: performSegue(withIdentifier: "showImage", sender: nil)
-        case .showAll: performSegue(withIdentifier: "showCategory", sender: nil)
-        case .showGif: performSegue(withIdentifier: "showCategory", sender: nil)
+        case .showAll: performSegue(withIdentifier: "showGif", sender: nil)
+        case .showGif: performSegue(withIdentifier: "showGif", sender: nil)
         }
         
     }
@@ -48,6 +50,9 @@ class MainCollectionViewController: UICollectionViewController {
         if segue.identifier == "showImage" {
             guard let singleImageVC = segue.destination as? SingleImageViewController else { return }
             singleImageVC.imageData = singleImage
+        } else if segue.identifier == "showGif" {
+            guard let singleGifVC = segue.destination as? SingleGifViewController else { return }
+            singleGifVC.imageData = singleGif
         }
     }
 
