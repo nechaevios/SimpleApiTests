@@ -7,7 +7,8 @@
 
 
 enum ApiLinks: String {
-    case singleImageUrl = "https://api.thecatapi.com/v1/images/search?mime_types=jpg,png&api_key=cd6e738d-658f-4f71-ae9b-e12db0ea590a"
+    case singleImageUrl = "https://api.thecatapi.com/v1/images/search?mime_types=jpg,png"
     case singleGifUrl = "https://api.thecatapi.com/v1/images/search?mime_types=gif"
     case imageListUrl = ""
+    
 }

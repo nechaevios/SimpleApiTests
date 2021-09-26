@@ -10,10 +10,11 @@ import UIKit
 class MainCollectionViewController: UICollectionViewController {
     
     let userActions = UserActions.allCases
+    let singleImage = TestApi.init(apiUrl: ApiLinks.singleImageUrl.rawValue)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        singleImage.getImageData()
     }
     
     // MARK: UICollectionViewDataSource
@@ -40,6 +41,14 @@ class MainCollectionViewController: UICollectionViewController {
         case .showGif: performSegue(withIdentifier: "showCategory", sender: nil)
         }
         
+    }
+    
+    // MARK: Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showImage" {
+            guard let singleImageVC = segue.destination as? SingleImageViewController else { return }
+            singleImageVC.imageData = singleImage
+        }
     }
 
 }
