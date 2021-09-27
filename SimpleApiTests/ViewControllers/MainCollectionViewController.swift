@@ -10,8 +10,8 @@ import UIKit
 class MainCollectionViewController: UICollectionViewController {
     
     let userActions = UserActions.allCases
-    let singleImage = TestApi.init(apiUrl: ApiLinks.singleImageUrl.rawValue)
-    let singleGif = TestApi.init(apiUrl: ApiLinks.singleGifUrl.rawValue)
+    let singleImage = NetworkManager.init(apiUrl: ApiLinks.singleImageUrl.rawValue)
+    let singleGif = NetworkManager.init(apiUrl: ApiLinks.singleGifUrl.rawValue)
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -8,7 +8,7 @@
 import UIKit
 import WebKit
 
-class TestApi {
+class NetworkManager {
     
     let apiUrl: String
     
@@ -55,7 +55,7 @@ class TestApi {
         
     }
     
-    func fetchImage(fromData: TestApi, forImageView: UIImageView, andIndicator: UIActivityIndicatorView) {
+    func fetchImage(fromData: NetworkManager, forImageView: UIImageView, andIndicator: UIActivityIndicatorView) {
         andIndicator.isHidden = false
         andIndicator.startAnimating()
         
@@ -76,7 +76,7 @@ class TestApi {
         }.resume()
     }
     
-    func fetchGif(fromData: TestApi, forWebView: WKWebView, andIndicator: UIActivityIndicatorView) {
+    func fetchGif(fromData: NetworkManager, forWebView: WKWebView, andIndicator: UIActivityIndicatorView) {
         
         andIndicator.isHidden = false
         andIndicator.startAnimating()

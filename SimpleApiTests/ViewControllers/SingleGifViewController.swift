@@ -17,7 +17,7 @@ class SingleGifViewController: UIViewController, WKUIDelegate {
     
     @IBOutlet weak var gifWebView: WKWebView!
     
-    var imageData: TestApi!
+    var imageData: NetworkManager!
         
     override func viewDidLoad() {
         super.viewDidLoad()

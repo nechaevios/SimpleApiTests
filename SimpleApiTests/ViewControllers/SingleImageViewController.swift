@@ -15,7 +15,7 @@ class SingleImageViewController: UIViewController {
     @IBOutlet weak var imageIdLabel: UILabel!
     @IBOutlet weak var moreButton: UIButton!
     
-    var imageData: TestApi!
+    var imageData: NetworkManager!
     
     override func viewDidLoad() {
         super.viewDidLoad()
