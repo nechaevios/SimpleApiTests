@@ -10,8 +10,8 @@ import UIKit
 class MainCollectionViewController: UICollectionViewController {
     
     let userActions = UserActions.allCases
-    let singleImage = DataManager.init(apiUrl: ApiLinks.singleImageUrl.rawValue)
-    let singleGif = DataManager.init(apiUrl: ApiLinks.singleGifUrl.rawValue)
+    let singleImage = DataManager.init(apiUrl: .singleImageUrl)
+    let singleGif = DataManager.init(apiUrl: .singleGifUrl)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +39,6 @@ class MainCollectionViewController: UICollectionViewController {
         
         switch userAction {
         case .getRandomImage: performSegue(withIdentifier: "showImage", sender: nil)
-        case .showAll: performSegue(withIdentifier: "showGif", sender: nil)
         case .showGif: performSegue(withIdentifier: "showGif", sender: nil)
         }
         
@@ -50,10 +49,18 @@ class MainCollectionViewController: UICollectionViewController {
         if segue.identifier == "showImage" {
             guard let singleImageVC = segue.destination as? SingleImageViewController else { return }
             singleImageVC.imageData = singleImage
+            
         } else if segue.identifier == "showGif" {
             guard let singleGifVC = segue.destination as? SingleGifViewController else { return }
             singleGifVC.imageData = singleGif
         }
     }
 
+}
+
+extension MainCollectionViewController {
+    enum UserActions: String, CaseIterable {
+        case getRandomImage = "Show Image"
+        case showGif = "Show Gif"
+    }
 }

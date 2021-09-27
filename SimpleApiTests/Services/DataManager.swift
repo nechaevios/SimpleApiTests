@@ -26,8 +26,8 @@ class DataManager {
         """
     }
     
-    init(apiUrl: String) {
-        self.apiUrl = apiUrl
+    init(apiUrl: ApiLinks) {
+        self.apiUrl = apiUrl.rawValue
         
     }
     
@@ -52,6 +52,15 @@ class DataManager {
                 print(error)
             }
         }.resume()
+        
+    }
+}
+
+
+extension DataManager {
+    enum ApiLinks: String {
+        case singleImageUrl = "https://api.thecatapi.com/v1/images/search?mime_types=jpg,png"
+        case singleGifUrl = "https://api.thecatapi.com/v1/images/search?mime_types=gif"
         
     }
 }
