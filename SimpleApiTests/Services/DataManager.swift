@@ -18,7 +18,7 @@ class DataManager {
         
     }
     
-    func getImagesData() {
+    func fetchApiData() {
         guard let url = URL(string: apiUrl) else { return }
         
         URLSession.shared.dataTask(with: url) { data, _, error in

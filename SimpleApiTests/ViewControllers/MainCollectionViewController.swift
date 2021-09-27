@@ -15,8 +15,8 @@ class MainCollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        singleImage.getImagesData()
-        singleGif.getImagesData()
+        singleImage.fetchApiData()
+        singleGif.fetchApiData()
     }
     
     // MARK: UICollectionViewDataSource
