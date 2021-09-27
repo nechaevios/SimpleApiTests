@@ -24,7 +24,7 @@ class SingleGifViewController: UIViewController, WKUIDelegate {
         activityIndicator.startAnimating()
         activityIndicator.hidesWhenStopped = true
         
-        gifIdLabel.text = imageData.description
+        gifIdLabel.text = imageData.imageListData.first?.description
         
         gifWebView.uiDelegate = self
         self.view.addSubview(gifWebView)
@@ -40,7 +40,7 @@ class SingleGifViewController: UIViewController, WKUIDelegate {
     @IBAction func reloadGif() {
         imageData.getImageData()
         
-        gifIdLabel.text = imageData.description
+        gifIdLabel.text = imageData.imageListData.first?.description
         
         fetchGif(
             fromData: imageData,
@@ -58,7 +58,7 @@ extension SingleGifViewController {
         andIndicator.isHidden = false
         andIndicator.startAnimating()
         
-        guard let gifImageUrl = URL(string: fromData.imageUrl) else { return }
+        guard let gifImageUrl = URL(string: fromData.imageListData.first?.url ?? "") else { return }
         let urlRequest = URLRequest(url: gifImageUrl)
         
         forWebView.load(urlRequest)

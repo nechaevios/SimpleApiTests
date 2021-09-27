@@ -23,7 +23,7 @@ class SingleImageViewController: UIViewController {
         activityIndicator.startAnimating()
         activityIndicator.hidesWhenStopped = true
         
-        imageIdLabel.text = imageData.description
+        imageIdLabel.text = imageData.imageListData.first?.description
         
         fetchImage(
             fromData: imageData,
@@ -36,7 +36,7 @@ class SingleImageViewController: UIViewController {
     @IBAction func reloadImage() {
         imageData.getImageData()
         
-        imageIdLabel.text = imageData.description
+        imageIdLabel.text = imageData.imageListData.first?.description
 
         fetchImage(
             fromData: imageData,
@@ -53,7 +53,7 @@ extension SingleImageViewController {
         andIndicator.isHidden = false
         andIndicator.startAnimating()
         
-        guard let url = URL(string: fromData.imageUrl) else { return }
+        guard let url = URL(string: fromData.imageListData.first?.url ?? "") else { return }
         
         URLSession.shared.dataTask(with: url) { data, _, error in
             guard let data = data else {

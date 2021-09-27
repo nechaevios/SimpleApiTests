@@ -13,4 +13,12 @@ struct ImageData: Decodable {
     let width: Int?
     let height: Int?
     
+    var description: String {
+        """
+        id: \(id ?? "")
+        width: \(width ?? 0)
+        height: \(height ?? 0)
+        """
+    }
+    
 }

@@ -11,20 +11,8 @@ import WebKit
 class DataManager {
     
     let apiUrl: String
-    
-    var imageUrl = ""
-    
-    private var imageId = ""
-    private var imageWidth = 0
-    private var imageHeight = 0
-    
-    var description: String {
-        """
-        id: \(imageId)
-        width: \(imageWidth)
-        height: \(imageHeight)
-        """
-    }
+        
+    var imageListData: [ImageData] = []
     
     init(apiUrl: ApiLinks) {
         self.apiUrl = apiUrl.rawValue
@@ -41,12 +29,7 @@ class DataManager {
             }
             
             do {
-                let imageData = try JSONDecoder().decode([ImageData].self, from: data)
-                
-                self.imageUrl = imageData.first?.url ?? ""
-                self.imageId = imageData.first?.id ?? ""
-                self.imageWidth = imageData.first?.width ?? 0
-                self.imageHeight = imageData.first?.height ?? 0
+                self.imageListData = try JSONDecoder().decode([ImageData].self, from: data)
                 
             } catch let error {
                 print(error)
