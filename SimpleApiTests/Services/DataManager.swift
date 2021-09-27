@@ -9,9 +9,8 @@ import Foundation
 
 class DataManager {
     
-    let apiUrl: String
-        
     var imageListData: [ImageData] = []
+    let apiUrl: String
     
     init(apiUrl: ApiLinks) {
         self.apiUrl = apiUrl.rawValue

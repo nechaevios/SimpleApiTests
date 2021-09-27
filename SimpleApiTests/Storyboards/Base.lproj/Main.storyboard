@@ -169,16 +169,11 @@
                                 <rect key="frame" x="16" y="60" width="288" height="267"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
-                                    <dataDetectorTypes key="dataDetectorTypes"/>
+                                    <dataDetectorTypes key="dataDetectorTypes" none="YES"/>
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="k2l-QT-4Rm">
-                                <rect key="frame" x="141" y="265" width="37" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="color" red="0.60986027620000005" green="0.23585465359999999" blue="0.84824897970000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8bH-dV-4sb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -196,7 +191,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="mqf-2z-lXQ"/>
                     <connections>
-                        <outlet property="activityIndicator" destination="k2l-QT-4Rm" id="LGu-T6-JEi"/>
                         <outlet property="gifIdLabel" destination="fW7-Pj-gQO" id="Z9x-bP-ghd"/>
                         <outlet property="gifWebView" destination="Hh5-wr-1L9" id="sv3-Bm-MZN"/>
                     </connections>

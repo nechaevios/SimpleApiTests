@@ -9,9 +9,7 @@ import UIKit
 import WebKit
 
 class SingleGifViewController: UIViewController, WKUIDelegate {
-    
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    
+
     @IBOutlet weak var gifIdLabel: UILabel!
     @IBOutlet weak var moreButtonLabel: UIButton!
     
@@ -21,9 +19,6 @@ class SingleGifViewController: UIViewController, WKUIDelegate {
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        activityIndicator.startAnimating()
-        activityIndicator.hidesWhenStopped = true
-        
         gifIdLabel.text = imageData.imageListData.first?.description
         
         gifWebView.uiDelegate = self
@@ -31,8 +26,7 @@ class SingleGifViewController: UIViewController, WKUIDelegate {
         
         fetchGif(
             fromData: imageData,
-            forWebView: gifWebView,
-            andIndicator: activityIndicator
+            forWebView: gifWebView
         )
         
     }
@@ -44,8 +38,7 @@ class SingleGifViewController: UIViewController, WKUIDelegate {
         
         fetchGif(
             fromData: imageData,
-            forWebView: gifWebView,
-            andIndicator: activityIndicator
+            forWebView: gifWebView
         )
         
     }
@@ -53,16 +46,12 @@ class SingleGifViewController: UIViewController, WKUIDelegate {
 }
 
 extension SingleGifViewController {
-    func fetchGif(fromData: DataManager, forWebView: WKWebView, andIndicator: UIActivityIndicatorView) {
-        
-        andIndicator.isHidden = false
-        andIndicator.startAnimating()
-        
+    func fetchGif(fromData: DataManager, forWebView: WKWebView) {
         guard let gifImageUrl = URL(string: fromData.imageListData.first?.url ?? "") else { return }
         let urlRequest = URLRequest(url: gifImageUrl)
         
         forWebView.load(urlRequest)
-        
     }
+    
 }
 
