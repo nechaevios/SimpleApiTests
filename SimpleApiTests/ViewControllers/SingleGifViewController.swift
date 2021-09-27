@@ -38,7 +38,7 @@ class SingleGifViewController: UIViewController, WKUIDelegate {
     }
 
     @IBAction func reloadGif() {
-        imageData.getImageData()
+        imageData.getImagesData()
         
         gifIdLabel.text = imageData.imageListData.first?.description
         

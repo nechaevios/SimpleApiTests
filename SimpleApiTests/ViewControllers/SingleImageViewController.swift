@@ -34,7 +34,7 @@ class SingleImageViewController: UIViewController {
     }
     
     @IBAction func reloadImage() {
-        imageData.getImageData()
+        imageData.getImagesData()
         
         imageIdLabel.text = imageData.imageListData.first?.description
 

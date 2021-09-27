@@ -5,8 +5,7 @@
 //  Created by Nechaev Sergey  on 25.09.2021.
 //
 
-import UIKit
-import WebKit
+import Foundation
 
 class DataManager {
     
@@ -19,7 +18,7 @@ class DataManager {
         
     }
     
-    func getImageData() {
+    func getImagesData() {
         guard let url = URL(string: apiUrl) else { return }
         
         URLSession.shared.dataTask(with: url) { data, _, error in

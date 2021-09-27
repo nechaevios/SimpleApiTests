@@ -5,8 +5,6 @@
 //  Created by Nechaev Sergey  on 26.09.2021.
 //
 
-import Foundation
-
 struct ImageData: Decodable {
     let id: String?
     let url: String?
