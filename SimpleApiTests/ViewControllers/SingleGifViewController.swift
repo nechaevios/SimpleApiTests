@@ -17,7 +17,7 @@ class SingleGifViewController: UIViewController, WKUIDelegate {
     
     @IBOutlet weak var gifWebView: WKWebView!
     
-    var imageData: NetworkManager!
+    var imageData: DataManager!
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +29,7 @@ class SingleGifViewController: UIViewController, WKUIDelegate {
         gifWebView.uiDelegate = self
         self.view.addSubview(gifWebView)
         
-        imageData.fetchGif(
+        fetchGif(
             fromData: imageData,
             forWebView: gifWebView,
             andIndicator: activityIndicator
@@ -42,7 +42,7 @@ class SingleGifViewController: UIViewController, WKUIDelegate {
         
         gifIdLabel.text = imageData.description
         
-        imageData.fetchGif(
+        fetchGif(
             fromData: imageData,
             forWebView: gifWebView,
             andIndicator: activityIndicator
@@ -50,4 +50,18 @@ class SingleGifViewController: UIViewController, WKUIDelegate {
         
     }
     
+}
+
+extension SingleGifViewController {
+    func fetchGif(fromData: DataManager, forWebView: WKWebView, andIndicator: UIActivityIndicatorView) {
+        
+        andIndicator.isHidden = false
+        andIndicator.startAnimating()
+        
+        guard let gifImageUrl = URL(string: fromData.imageUrl) else { return }
+        let urlRequest = URLRequest(url: gifImageUrl)
+        
+        forWebView.load(urlRequest)
+        
+    }
 }
